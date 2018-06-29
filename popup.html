@@ -5,9 +5,9 @@
   <title>弹出窗</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" />
   <style type="text/css" media="screen">
-  html body{
-  	    background-color: #fff;
-  }
+		  html body{
+		  	    background-color: #fff;
+		  }
   	    .dimmer{
 		display: none;
 		position: fixed;
@@ -45,13 +45,60 @@
 		    color: #fff;
 		    cursor: pointer;
 		}
+		.dimmer2{
+			display: none;
+		    position: absolute;
+		    top: 0!important;
+		    left: 0!important;
+		    width: 100%;
+		    height: 100%;
+		    text-align: center;
+		    vertical-align: middle;
+		    padding: 1em;
+		    background-color: rgba(0,0,0,.85);
+		    /*opacity: 0;*/
+		    line-height: 1;
+		    -webkit-animation-fill-mode: both;
+		    animation-fill-mode: both;
+		    -webkit-animation-duration: .5s;
+		    animation-duration: .5s;
+		    -webkit-transition: background-color .5s linear;
+		    transition: background-color .5s linear;
+		    -webkit-box-orient: vertical;
+		    -webkit-box-direction: normal;
+		    -ms-flex-direction: column;
+		    flex-direction: column;
+		    -webkit-box-align: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    -webkit-box-pack: center;
+		    -ms-flex-pack: center;
+		    justify-content: center;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+		    will-change: opacity;
+		    z-index: 1000;
+		}
   </style>
 </head>
 <body>
 <button class="J_s_popup">show 弹出窗</button>
+<button class="J_s_popup2">show 弹出窗2</button>
 
 	<div class="dimmer">
 	<!-- <div class="dimmer" style="display: block;"> -->
+		<div class="dialog">
+			<div style="position: relative;width: 500px;height: 500px;border:1px solid #ddd;text-align: center;">
+				<i class="J_c_popup c_popup">x</i>
+				弹出框内容
+			</div>
+		</div>
+	</div>
+
+	<div class="dimmer2">
+	<!-- <div class="dimmer2" style="display: block;"> -->
 		<div class="dialog">
 			<div style="position: relative;width: 500px;height: 500px;border:1px solid #ddd;text-align: center;">
 				<i class="J_c_popup c_popup">x</i>
@@ -66,8 +113,12 @@
 $('.J_s_popup').on('click',  function(event) {
 	$('.dimmer').show();
 });
+$('.J_s_popup2').on('click',  function(event) {
+	$('.dimmer2').show();
+});
 $('.J_c_popup').on('click',  function(event) {
 	$('.dimmer').hide();
+	$('.dimmer2').hide();
 });
 </script>
 </html>
